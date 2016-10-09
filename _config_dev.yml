@@ -1,0 +1,31 @@
+# Permalinks
+# This is the default format. 
+# For more see: http://jekyllrb.com/docs/permalinks/
+#permalink: /:categories/:year/:month/:day/:title 
+permalink: /:title
+
+gems: ["jekyll-sitemap"]
+
+# Setup
+title:               "D. Nutter"
+tagline:             'Software and Technical Design, Theory, and Musings'
+description:         ''
+#url : http://dsnutter.github.io
+url:                 "http://localhost:4000/"
+#url:                 "http://dsnutter.github.io/"
+#baseurl:             ''
+
+# About/contact
+author:
+  name: "D. Nutter"
+  email: ""
+  github: dsnutter
+  twitter: "@lowentrpycr8tns"
+
+# Custom vars
+version:             1.0.0
+# Custom DSN site variables
+DSN:
+  imagePath: /assets/images
+  analytics: 
+    LEC: "UA-55951835-1"

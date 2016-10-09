@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="description" content="This post describes how to test a HTML5 canvas using Canteen and AngularJS with a Karma/Jasmine unit test harness."/>
+  <meta property="og:title" content="Unit Testing an HTML5 Canvas with Canteen" />
+  <meta property="og:description" content="This post describes how to test a HTML5 canvas using Canteen and AngularJS with a Karma/Jasmine unit test harness." />
+
+  <meta property="og:url" content="http://localhost:4000/unit-testing-html5-canvas-with-canteen" />
+  <link rel="canonical" href="http://localhost:4000/unit-testing-html5-canvas-with-canteen" />
+
+  <meta property="og:site_name" content="D. Nutter: Software and Technical Design, Theory, and Musings" />
+
+  <meta property="article:published_time" content="2015-03-19 00:00:00 -0400" />
+
+
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Unit Testing an HTML5 Canvas with Canteen &middot; D. Nutter
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/poole.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-55951835-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <meta name="p:domain_verify" content="e1bbbfd9d202a2f503b79859d6fbced4"/>
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+
+    
+    <a class="sidebar-nav-item" href="/list">List of Articles</a>
+    <a class="sidebar-nav-item" href="https://github.com/dsnutter">GitHub</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2016. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">D. Nutter</a>
+            <small>Software and Technical Design, Theory, and Musings</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Unit Testing an HTML5 Canvas with Canteen</h1>
+  <span class="post-date">03/2015</span>
+  <h2 id="what-is-canteen">What is Canteen?</h2>
+
+<p><a href="http://labs.platfora.com/introducing-canteen-ultimate-html5-canvas-testing-library/">The Canteen home
+page</a>
+describes the project as follows:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[...Canteen...] records all of the drawing instructions, such as method calls and property changes, by creating a wrapper around the HTML5 Canvas context object that records all of these instructions and then proxies them to the native HTML5 Canvas context for rendering. 
+</code></pre>
+</div>
+
+<p>I use Canteen to monitor the HTML5 canvas interface to build unit tests.
+Canteen keeps track of all the drawing commands sent to the canvas and
+you can export the commands as an array of the canvas instruction stack,
+JSON, or md5sum. This yields a repeatable canvas structure that you can
+compare to for unit testing. Canteen offers a simpler way to test HTML5
+canvas without having to do image diffs, image recognition, or something
+more complex with image or SVG exports of the canvas.</p>
+
+<h2 id="why-would-i-want-to-unit-test-the-canvas-object">Why would I want to unit test the canvas object?</h2>
+
+<p>When unit testing the canvas object, Canteen offers a way to repeatedly
+verify that the drawing on the canvas executes the same canvas
+instructions as when you developed the canvas codebase. I develop what I
+want to draw on the canvas and use Karma and Jasmine to run tests
+against it.</p>
+
+<h2 id="installing-jasmine-phantomjs-angularjs-and-canteen">Installing Jasmine, PhantomJS, AngularJS, and Canteen</h2>
+
+<p>For development I use a Windows 7 x64 machine.
+<a href="https://github.com/node-xmpp/node-expat/issues/57">Here</a> are some
+specific notes on using node.js with Windows 7. If you are running
+Windows 7 then install the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=8279">Windows
+SDKs</a>, if
+you are running some other OS then ignore the instructions for Windows
+7.</p>
+
+<p>First, install <a href="https://nodejs.org/">Node.js</a> for your platform.</p>
+
+<p>If you are running Windows 7 open a Node.js command prompt, and execute
+either</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>call "C:\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\bin\\Setenv.cmd" /Release /x86
+</code></pre>
+</div>
+
+<p>for x86 Windows 7 or\</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>call "C:\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\bin\\Setenv.cmd" /Release /x64
+</code></pre>
+</div>
+
+<p>for x64 Windows 7.</p>
+
+<p>Then install <a href="https://angularjs.org/">AngularJS</a> and <a href="https://docs.angularjs.org/api/ngMock/object/angular.mock">Angular
+Mocks</a>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install angular angular-mocks
+</code></pre>
+</div>
+
+<p>Then install <a href="http://phantomjs.org/">PhantomJS</a> and
+<a href="http://jasmine.github.io/">Jasmine</a></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install phantomjs jasmine
+</code></pre>
+</div>
+
+<p>Then install Karma Runner and the associated Karma Plugins for Jasmine
+and PhantomJS</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install karma karma-jasmine karma-phantomjs-launcher --save-dev
+</code></pre>
+</div>
+
+<p>Also, under Windows 7, ignore any warnings when installing.</p>
+
+<p>Clone the <a href="https://github.com/platfora/Canteen">Canteen</a> github
+repository (you must have <a href="http://git-scm.com/">git</a> installed if you
+don’t already)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/platfora/Canteen.git
+</code></pre>
+</div>
+
+<h2 id="karma-configuration-file">Karma Configuration File</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// Karma configuration
+module.exports = function(config) {
+config.set({
+
+    // base path that will be used to resolve all patterns (eg. files, exclude)
+    basePath: 'D:/projects/',
+
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: ['jasmine'],
+
+    // list of files / patterns to load in the browser
+    files: [
+    // referenced libraries
+    'node_modules/angular/angular.min.js',
+    'node_modules/angular-mocks/angular-mocks.js',
+    'Canteen/build/canteen.js',
+
+    // application files
+    'canvas.module.js',
+
+    // unit tests
+    'test.canvas.module.js'
+    ],
+
+
+    // list of files to exclude
+    exclude: [
+    ],
+
+
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+    },
+
+
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['progress'],
+
+    // enable / disable colors in the output (reporters and logs)
+    colors: true,
+
+
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
+
+
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: false,
+
+
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    browsers: ['PhantomJS'],
+
+
+    // Continuous Integration mode
+    // if true, Karma captures browsers, runs the tests and exits
+    singleRun: true
+    });
+};
+</code></pre>
+</div>
+
+<h2 id="angularjs-code-to-test">AngularJS Code To Test</h2>
+
+<p>The following AngularJS service draws a circle on a canvas.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>angular.module("lec.canvas", [])
+
+.factory('lec.canvas.service.draw', function() {
+    // the HTML5 drawing context and items to set defaults for
+    var _canvas, _context;
+
+    return {
+        // initializes parameters for the segmented drawing service
+        initialize: function(canvas) {
+            _canvas = canvas;
+            _context = _canvas.getContext('2d');
+            // clears the canvas, and resets vars
+            this.clear();
+        },
+        context: function() {
+        return _context;
+        },
+        // clear the canvas of any previous drawings
+        clear: function() {
+            _context.clearRect(0, 0, _canvas.width, _canvas.height);
+        },
+        // draws a circle on the canvas
+        circle: function(center, radius, color) {
+            _context.beginPath();
+            _context.arc(center.x, center.y, radius, 0, 2*Math.PI, false);
+            _context.lineWidth = 2;
+            _context.strokeStyle = color;
+            _context.stroke();
+        },
+    };
+});
+</code></pre>
+</div>
+
+<h2 id="jasmine-tests">Jasmine Tests</h2>
+
+<p>The following is the jasmine test developed to test the service that
+draws the circle.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>describe('lec.canvas', function() {
+// test the segmented ring drawing functionality
+describe('lec.canvas.service.draw', function() {
+    var draw;
+    beforeEach(function() {
+    // load the module.
+    module('lec.canvas');
+
+    inject(function($injector) {
+        draw = $injector.get('lec.canvas.service.draw');
+        var canvas = document.createElement('canvas');
+        canvas.id     = "testCanvas";
+        canvas.width  = 500;
+        canvas.height = 500;
+        // initialize the canvas for drawing
+        draw.initialize(canvas);
+    });
+    });
+    describe('clear', function() {
+    it('erases the canvas', function() {
+        draw.clear();
+        var expected = 'c62e5ecf5bead7be72f252325e55bc02';
+
+        var hash = draw.context().hash();
+
+        //console.log('json: ' + json);
+        //console.log('hash: ' + hash);
+
+        // example unit test assertion
+        expect(hash).toBe(expected);
+
+        // clear the stack
+        draw.context().clean();
+    });
+    });
+    describe('circle', function() {
+    it('creates a circle', function() {
+        var expected = '';
+        
+        draw.circle({x: 250, y: 250}, 100, 'red');
+
+        json = draw.context().json();
+        hash = draw.context().hash();
+
+        console.log('json: ' + json);
+        console.log('hash: ' + hash);
+
+        // example unit test assertion
+        expect(hash).toBe(expected);
+
+        // clear the stack
+        draw.context().clean();
+    });
+    });
+});
+});
+</code></pre>
+</div>
+
+<h2 id="test-runs">Test Runs</h2>
+
+<p>Execute the unit test with:</p>
+
+<p>karma start canvas.conf.js</p>
+
+<p>The first test run is an unsuccessful test, and the code will output the
+JSON and md5sum representing the canvas generated.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[32mINFO [karma]: [39mKarma v0.12.31 server started at http://localhost:9876/
+[32mINFO [launcher]: [39mStarting browser PhantomJS
+[32mINFO [PhantomJS 1.9.8 (Windows 7)]: [39mConnected on socket nCQUhrfMg-pT57ifPpfN with id 9109488
+PhantomJS 1.9.8 (Windows 7): Executed 0 of 2[32m SUCCESS[39m (0 secs / 0 secs)
+[1A[2KPhantomJS 1.9.8 (Windows 7): Executed 1 of 2[32m SUCCESS[39m (0 secs / 0.024 secs)
+[1A[2KLOG: [36m'json: [{"method":"clearRect","arguments":[0,0,500,500]},{"method":"beginPath","arguments":[]},{"method":"arc","arguments":[250,250,100,0,6.283185307179586,false]},{"attr":"lineWidth","val":2},{"attr":"strokeStyle","val":"red"},{"method":"stroke","arguments":[]}]'[39m
+PhantomJS 1.9.8 (Windows 7): Executed 1 of 2[32m SUCCESS[39m (0 secs / 0.024 secs)
+[1A[2KLOG: [36m'hash: 00f624e6dff2bf91662a1f80f6981ad9'[39m
+PhantomJS 1.9.8 (Windows 7): Executed 1 of 2[32m SUCCESS[39m (0 secs / 0.024 secs)
+[1A[2K[31mPhantomJS 1.9.8 (Windows 7) lec.canvas lec.canvas.service.draw circle creates a circle FAILED[39m
+    Expected '00f624e6dff2bf91662a1f80f6981ad9' to be ''.
+        at D:/projects/Websites/content/entropteria/articles/canteen/codebase/test.canvas.module.js:50
+PhantomJS 1.9.8 (Windows 7): Executed 2 of 2[31m (1 FAILED)[39m (0 secs / 0.033 secs)
+[1A[2KPhantomJS 1.9.8 (Windows 7): Executed 2 of 2[31m (1 FAILED)[39m (0 secs / 0.033 secs)
+</code></pre>
+</div>
+
+<p>The json canvas command result and the hash of the commands were printed
+out with “console.log”. You can now base a test off of either the JSON
+or md5sum results. I chose the md5sum, and assigned the md5sum
+‘00f624e6dff2bf91662a1f80f6981ad9’ in the ‘expected’ string, commented
+out the console.log() commands, and the result is below.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[32mINFO [karma]: [39mKarma v0.12.31 server started at http://localhost:9876/
+[32mINFO [launcher]: [39mStarting browser PhantomJS
+[32mINFO [PhantomJS 1.9.8 (Windows 7)]: [39mConnected on socket R1DzjSZ7qVhKA0l7RGp8 with id 11436839
+PhantomJS 1.9.8 (Windows 7): Executed 0 of 2[32m SUCCESS[39m (0 secs / 0 secs)
+[1A[2KPhantomJS 1.9.8 (Windows 7): Executed 1 of 2[32m SUCCESS[39m (0 secs / 0.024 secs)
+[1A[2KPhantomJS 1.9.8 (Windows 7): Executed 2 of 2[32m SUCCESS[39m (0 secs / 0.03 secs)
+[1A[2KPhantomJS 1.9.8 (Windows 7): Executed 2 of 2[32m SUCCESS[39m (0 secs / 0.03 secs)
+</code></pre>
+</div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>I really like Canteen as it offers a way to test HTML5 canvas in a
+simpler way. To view an example of a more complex web application I
+developed using Canteen, see
+<a href="http://utility.lowentropycreations.com/calculators/segmented-bowl-ring-calculator.php">this</a>.</p>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

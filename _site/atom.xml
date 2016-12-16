@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>D. Nutter</title>
- <link href="http://dsnutter.github.io//atom.xml" rel="self"/>
- <link href="http://dsnutter.github.io//"/>
- <updated>2016-10-10T13:57:09-04:00</updated>
- <id>http://dsnutter.github.io/</id>
+ <link href="http://localhost:4000//atom.xml" rel="self"/>
+ <link href="http://localhost:4000//"/>
+ <updated>2016-12-16T10:41:54-05:00</updated>
+ <id>http://localhost:4000/</id>
  <author>
    <name>D. Nutter</name>
    <email></email>
@@ -13,10 +13,97 @@
 
  
  <entry>
+   <title>Setting Up a Mac with Minicom for an ELM32x OBD-II Device</title>
+   <link href="http://localhost:4000//setting-up-mac-with-minicom-elm32x-obd-II-device"/>
+   <updated>2016-12-16T00:00:00-05:00</updated>
+   <id>http://localhost:4000//setting-up-mac-with-minicom-elm32x-obd-II-device</id>
+   <content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This article explains how to setup a ELM32x OBD-II device with minicom on an Apple Macintosh. An ELM32x OBD-II device plugs into the OBD-II connector on your car and allows you to communicate with it using OBD-II hex codes.
+The ELM32x has an interface similar to a Hayes “AT” interface when connecting to it via a serial terminal program.
+This serial terminal interface is a good way to test out OBD-II hex values out before you write a program that sends the hex values to the device and car.
+To start the install, open the “terminal” application on your Mac.&lt;/p&gt;
+
+&lt;h2 id=&quot;install-minicom&quot;&gt;Install Minicom&lt;/h2&gt;
+
+&lt;p&gt;Install minicom using &lt;a href=&quot;http://brew.sh/&quot; target=&quot;_blank&quot;&gt;Homebrew&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install minicom
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;setup-minicom&quot;&gt;Setup Minicom&lt;/h2&gt;
+
+&lt;p&gt;Plug in your OBD-II adapter. Mine was an OBDLink SX USB adapter. At the terminal, type:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ls /dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You are looking for a tty device named /dev/tty.usbserial-xxxx where xxxx is a number. The tty could also be a bluetooth tty also 
+depending on the type of OBD-II ELM32x adapter you have. (Note: if its bluetooth, you will need to pair the device with your Mac)&lt;/p&gt;
+
+&lt;p&gt;Setup minicom by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;minicom -s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You should see the following menu:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/setting-up-mac-with-minicom-elm32x-obd-II-device/MinicomSettingsMenu.png&quot; alt=&quot;Settings Menu - Setting Up a Mac and ELM32x OBD-II Device With Minicom&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Using the arrow keys on the keyboard, select “Serial port setup” and press return. You should see the following menu:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/setting-up-mac-with-minicom-elm32x-obd-II-device/MinicomSerialPortSetup.png&quot; alt=&quot;Serial Port Setup - Setting Up a Mac and ELM32x OBD-II Device With Minicom&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Use the keyboard keys to select and input the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A: Input serial adapter device name, such as /dev/tty.usbserial-xxxx
+E: Set BPS to 115200
+F: Set hardware flow control to &quot;No&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;When finished, press return.&lt;/p&gt;
+
+&lt;p&gt;Using the arrow keys on the keyboard, select “Screen and keyboard” and press return. You should see the following menu:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/setting-up-mac-with-minicom-elm32x-obd-II-device/MinicomScreenKeyboardSettings.png&quot; alt=&quot;Screen and Keyboard Setup - Setting Up a Mac and ELM32x OBD-II Device With Minicom&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Use the keyboard keys to select and input the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;P: Set Add linefeed to &quot;Yes&quot;
+Q: Set local echo to &quot;No&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;When finished choose “Save setup as dfl”, which savings the settings you entered as the defaults.&lt;/p&gt;
+
+&lt;p&gt;Choose “Exit from Minicom” and the menus will close.&lt;/p&gt;
+
+&lt;p&gt;From the terminal prompt, type:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;minicom
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Minicom will start, so try a sample command. Type:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ATI
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;and the ELM32x will respond with the device firmware version.&lt;/p&gt;
+
+&lt;p&gt;For more simple OBD-II commands, see this article on &lt;a href=&quot;http://www.obdsol.com/knowledgebase/obd-software-development/reading-real-time-data/&quot; target=&quot;_blank&quot;&gt;reading real time data&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>DC Inverting Amplifiers Using Opamps</title>
-   <link href="http://dsnutter.github.io//dc-opamps-inverting"/>
+   <link href="http://localhost:4000//dc-opamps-inverting"/>
    <updated>2016-01-22T00:00:00-05:00</updated>
-   <id>http://dsnutter.github.io//dc-opamps-inverting</id>
+   <id>http://localhost:4000//dc-opamps-inverting</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting/dc-opamps-schematic.png&quot; alt=&quot;DC Inverting Opamp Circuit Diagram - DC Inverting Amplifiers Using
 Opamps&quot; /&gt;&lt;/p&gt;
 
@@ -51,9 +138,9 @@ Using Opamps&quot; /&gt;&lt;/p&gt;
  
  <entry>
    <title>Unit Testing an HTML5 Canvas with Canteen</title>
-   <link href="http://dsnutter.github.io//unit-testing-html5-canvas-with-canteen"/>
+   <link href="http://localhost:4000//unit-testing-html5-canvas-with-canteen"/>
    <updated>2015-03-19T00:00:00-04:00</updated>
-   <id>http://dsnutter.github.io//unit-testing-html5-canvas-with-canteen</id>
+   <id>http://localhost:4000//unit-testing-html5-canvas-with-canteen</id>
    <content type="html">&lt;h2 id=&quot;what-is-canteen&quot;&gt;What is Canteen?&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://labs.platfora.com/introducing-canteen-ultimate-html5-canvas-testing-library/&quot;&gt;The Canteen home

@@ -34,11 +34,11 @@ Setup minicom by typing:
 
 You should see the following menu:
 
-![Settings Menu - Setting Up a Mac and ELM32x OBD-II Device With Minicom]({{ site.DSN.imagePath }}{{ page.url }}/MinicomSettingsMenu.png)
+![Settings Menu - Setting Up a Mac and ELM32x OBD-II Device With Minicom]({{ site.DSN.imagePath }}{{ page.url }}MinicomSettingsMenu.png)
 
 Using the arrow keys on the keyboard, select "Serial port setup" and press return. You should see the following menu:
 
-![Serial Port Setup - Setting Up a Mac and ELM32x OBD-II Device With Minicom]({{ site.DSN.imagePath }}{{ page.url }}/MinicomSerialPortSetup.png)
+![Serial Port Setup - Setting Up a Mac and ELM32x OBD-II Device With Minicom]({{ site.DSN.imagePath }}{{ page.url }}MinicomSerialPortSetup.png)
 
 Use the keyboard keys to select and input the following:
 
@@ -50,7 +50,7 @@ When finished, press return.
 
 Using the arrow keys on the keyboard, select "Screen and keyboard" and press return. You should see the following menu:
 
-![Screen and Keyboard Setup - Setting Up a Mac and ELM32x OBD-II Device With Minicom]({{ site.DSN.imagePath }}{{ page.url }}/MinicomScreenKeyboardSettings.png)
+![Screen and Keyboard Setup - Setting Up a Mac and ELM32x OBD-II Device With Minicom]({{ site.DSN.imagePath }}{{ page.url }}MinicomScreenKeyboardSettings.png)
 
 Use the keyboard keys to select and input the following:
 

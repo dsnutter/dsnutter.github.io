@@ -5,7 +5,7 @@ description: "Opamps can be used in DC circuits. The circuit diagram defines an 
 featuredImage: dc-opamps-schematic.png
 ---
 ![DC Inverting Opamp Circuit Diagram - DC Inverting Amplifiers Using
-Opamps]({{ site.DSN.imagePath }}{{ page.url }}/{{ page.featuredImage }})
+Opamps]({{ site.DSN.imagePath }}{{ page.url }}{{ page.featuredImage }})
 
 Introduction
 ------------
@@ -34,5 +34,5 @@ Vout is negative, therefore the label "inverting amplifier". The gain of
 the DC opamp circuit is (Rf / R1).
 
 ![Inverting Amplifier Equation Derivation - DC Inverting Amplifiers
-Using Opamps]({{ site.DSN.imagePath }}{{ page.url }}/dc-opamps-nodeMethod.png)
+Using Opamps]({{ site.DSN.imagePath }}{{ page.url }}dc-opamps-nodeMethod.png)
 

@@ -2,7 +2,9 @@
 # This is the default format. 
 # For more see: http://jekyllrb.com/docs/permalinks/
 #permalink: /:categories/:year/:month/:day/:title 
-permalink: /:title
+permalink: /:title/
+keep_files: [google42abf95ea02add5b.html]
+exclude: [google42abf95ea02add5b.html]
 
 gems: ["jekyll-sitemap"]
 

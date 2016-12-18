@@ -4,7 +4,7 @@
  <title>D. Nutter</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2016-12-18T10:15:19-05:00</updated>
+ <updated>2016-12-18T10:38:16-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>D. Nutter</name>
@@ -14,7 +14,7 @@
  
  <entry>
    <title>Setting Up a Mac with Minicom for an ELM32x OBD-II Device</title>
-   <link href="http://localhost:4000/setting-up-mac-with-minicom-elm32x-obd-II-device"/>
+   <link href="http://localhost:4000/setting-up-mac-with-minicom-elm32x-obd-II-device/"/>
    <updated>2016-12-16T00:00:00-05:00</updated>
    <id>http://localhost:4000/setting-up-mac-with-minicom-elm32x-obd-II-device</id>
    <content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -50,11 +50,11 @@ depending on the type of OBD-II ELM32x adapter you have. (Note: if its bluetooth
 
 &lt;p&gt;You should see the following menu:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/setting-up-mac-with-minicom-elm32x-obd-II-device/MinicomSettingsMenu.png&quot; alt=&quot;Settings Menu - Setting Up a Mac and ELM32x OBD-II Device With Minicom&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/setting-up-mac-with-minicom-elm32x-obd-II-device//MinicomSettingsMenu.png&quot; alt=&quot;Settings Menu - Setting Up a Mac and ELM32x OBD-II Device With Minicom&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Using the arrow keys on the keyboard, select “Serial port setup” and press return. You should see the following menu:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/setting-up-mac-with-minicom-elm32x-obd-II-device/MinicomSerialPortSetup.png&quot; alt=&quot;Serial Port Setup - Setting Up a Mac and ELM32x OBD-II Device With Minicom&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/setting-up-mac-with-minicom-elm32x-obd-II-device//MinicomSerialPortSetup.png&quot; alt=&quot;Serial Port Setup - Setting Up a Mac and ELM32x OBD-II Device With Minicom&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Use the keyboard keys to select and input the following:&lt;/p&gt;
 
@@ -68,7 +68,7 @@ F: Set hardware flow control to &quot;No&quot;
 
 &lt;p&gt;Using the arrow keys on the keyboard, select “Screen and keyboard” and press return. You should see the following menu:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/setting-up-mac-with-minicom-elm32x-obd-II-device/MinicomScreenKeyboardSettings.png&quot; alt=&quot;Screen and Keyboard Setup - Setting Up a Mac and ELM32x OBD-II Device With Minicom&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/setting-up-mac-with-minicom-elm32x-obd-II-device//MinicomScreenKeyboardSettings.png&quot; alt=&quot;Screen and Keyboard Setup - Setting Up a Mac and ELM32x OBD-II Device With Minicom&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Use the keyboard keys to select and input the following:&lt;/p&gt;
 
@@ -101,10 +101,10 @@ Q: Set local echo to &quot;No&quot;
  
  <entry>
    <title>DC Inverting Amplifiers Using Opamps</title>
-   <link href="http://localhost:4000/dc-opamps-inverting"/>
+   <link href="http://localhost:4000/dc-opamps-inverting/"/>
    <updated>2016-01-22T00:00:00-05:00</updated>
    <id>http://localhost:4000/dc-opamps-inverting</id>
-   <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting/dc-opamps-schematic.png&quot; alt=&quot;DC Inverting Opamp Circuit Diagram - DC Inverting Amplifiers Using
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting//dc-opamps-schematic.png&quot; alt=&quot;DC Inverting Opamp Circuit Diagram - DC Inverting Amplifiers Using
 Opamps&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -119,7 +119,7 @@ enough to be considered an ideal opamp).&lt;/p&gt;
 &lt;p&gt;The KCL equation for the opamp at node A is below. Note the current into
 the - opamp input is 0 amps.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting/dc-opamps-current.png&quot; alt=&quot;KCL at node A - DC Inverting Amplifiers Using
+&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting//dc-opamps-current.png&quot; alt=&quot;KCL at node A - DC Inverting Amplifiers Using
 Opamps&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;inverting-amplifier-equation-derivation-by-node-method&quot;&gt;Inverting Amplifier Equation Derivation by Node Method&lt;/h2&gt;
@@ -130,7 +130,7 @@ node A is 0 volts since the voltage at the + input is 0 volts. Note that
 Vout is negative, therefore the label “inverting amplifier”. The gain of
 the DC opamp circuit is (Rf / R1).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting/dc-opamps-nodeMethod.png&quot; alt=&quot;Inverting Amplifier Equation Derivation - DC Inverting Amplifiers
+&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting//dc-opamps-nodeMethod.png&quot; alt=&quot;Inverting Amplifier Equation Derivation - DC Inverting Amplifiers
 Using Opamps&quot; /&gt;&lt;/p&gt;
 
 </content>
@@ -138,7 +138,7 @@ Using Opamps&quot; /&gt;&lt;/p&gt;
  
  <entry>
    <title>Unit Testing an HTML5 Canvas with Canteen</title>
-   <link href="http://localhost:4000/unit-testing-html5-canvas-with-canteen"/>
+   <link href="http://localhost:4000/unit-testing-html5-canvas-with-canteen/"/>
    <updated>2015-03-19T00:00:00-04:00</updated>
    <id>http://localhost:4000/unit-testing-html5-canvas-with-canteen</id>
    <content type="html">&lt;h2 id=&quot;what-is-canteen&quot;&gt;What is Canteen?&lt;/h2&gt;

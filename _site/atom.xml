@@ -4,7 +4,7 @@
  <title>D. Nutter</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2016-12-18T10:42:51-05:00</updated>
+ <updated>2016-12-21T14:07:22-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>D. Nutter</name>
@@ -104,8 +104,7 @@ Q: Set local echo to &quot;No&quot;
    <link href="http://localhost:4000/dc-opamps-inverting/"/>
    <updated>2016-01-22T00:00:00-05:00</updated>
    <id>http://localhost:4000/dc-opamps-inverting</id>
-   <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting/dc-opamps-schematic.png&quot; alt=&quot;DC Inverting Opamp Circuit Diagram - DC Inverting Amplifiers Using
-Opamps&quot; /&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting/dc-opamps-schematic.png&quot; alt=&quot;DC Inverting Opamp Circuit Diagram - DC Inverting Amplifiers Using Opamps&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
@@ -119,8 +118,7 @@ enough to be considered an ideal opamp).&lt;/p&gt;
 &lt;p&gt;The KCL equation for the opamp at node A is below. Note the current into
 the - opamp input is 0 amps.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting//dc-opamps-current.png&quot; alt=&quot;KCL at node A - DC Inverting Amplifiers Using
-Opamps&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting/dc-opamps-current.png&quot; alt=&quot;KCL at node A - DC Inverting Amplifiers Using Opamps&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;inverting-amplifier-equation-derivation-by-node-method&quot;&gt;Inverting Amplifier Equation Derivation by Node Method&lt;/h2&gt;
 
@@ -130,8 +128,7 @@ node A is 0 volts since the voltage at the + input is 0 volts. Note that
 Vout is negative, therefore the label “inverting amplifier”. The gain of
 the DC opamp circuit is (Rf / R1).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting/dc-opamps-nodeMethod.png&quot; alt=&quot;Inverting Amplifier Equation Derivation - DC Inverting Amplifiers
-Using Opamps&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting/dc-opamps-nodeMethod.png&quot; alt=&quot;Inverting Amplifier Equation Derivation - DC Inverting Amplifiers Using Opamps&quot; /&gt;&lt;/p&gt;
 
 </content>
  </entry>

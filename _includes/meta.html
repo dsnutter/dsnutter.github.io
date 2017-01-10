@@ -1,0 +1,19 @@
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="description" content="{{ page.description }}"/>
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:description" content="{{ page.description }}" />
+
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+  <meta property="og:site_name" content="{{ site.title }}: {{ site.tagline }}" />
+{% if page.date %}
+  <meta property="article:published_time" content="{{ page.date }}" />
+{% endif %}
+{% if page.featuredImage %}
+  <meta property="og:image" content="{{ site.url }}{{ site.DSN.imagePath | remove_first:'/' }}{{ page.url }}/{{ page.featuredImage }}" />
+{% endif %}

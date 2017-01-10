@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>D. Nutter</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2016-12-21T14:07:22-05:00</updated>
- <id>http://localhost:4000</id>
+ <link href="http://dsnutter.github.io/atom.xml" rel="self"/>
+ <link href="http://dsnutter.github.io/"/>
+ <updated>2017-01-10T10:20:25-05:00</updated>
+ <id>http://dsnutter.github.io</id>
  <author>
    <name>D. Nutter</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Setting Up a Mac with Minicom for an ELM32x OBD-II Device</title>
-   <link href="http://localhost:4000/setting-up-mac-with-minicom-elm32x-obd-II-device/"/>
+   <link href="http://dsnutter.github.io/setting-up-mac-with-minicom-elm32x-obd-II-device/"/>
    <updated>2016-12-16T00:00:00-05:00</updated>
-   <id>http://localhost:4000/setting-up-mac-with-minicom-elm32x-obd-II-device</id>
+   <id>http://dsnutter.github.io/setting-up-mac-with-minicom-elm32x-obd-II-device</id>
    <content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This article explains how to setup a ELM32x OBD-II device with minicom on an Apple Macintosh. An ELM32x OBD-II device plugs into the OBD-II connector on your car and allows you to communicate with it using OBD-II hex codes.
 The ELM32x has an interface similar to a Hayes “AT” interface when connecting to it via a serial terminal program.
@@ -101,9 +101,9 @@ Q: Set local echo to &quot;No&quot;
  
  <entry>
    <title>DC Inverting Amplifiers Using Opamps</title>
-   <link href="http://localhost:4000/dc-opamps-inverting/"/>
+   <link href="http://dsnutter.github.io/dc-opamps-inverting/"/>
    <updated>2016-01-22T00:00:00-05:00</updated>
-   <id>http://localhost:4000/dc-opamps-inverting</id>
+   <id>http://dsnutter.github.io/dc-opamps-inverting</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting/dc-opamps-schematic.png&quot; alt=&quot;DC Inverting Opamp Circuit Diagram - DC Inverting Amplifiers Using Opamps&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -135,9 +135,9 @@ the DC opamp circuit is (Rf / R1).&lt;/p&gt;
  
  <entry>
    <title>Unit Testing an HTML5 Canvas with Canteen</title>
-   <link href="http://localhost:4000/unit-testing-html5-canvas-with-canteen/"/>
+   <link href="http://dsnutter.github.io/unit-testing-html5-canvas-with-canteen/"/>
    <updated>2015-03-19T00:00:00-04:00</updated>
-   <id>http://localhost:4000/unit-testing-html5-canvas-with-canteen</id>
+   <id>http://dsnutter.github.io/unit-testing-html5-canvas-with-canteen</id>
    <content type="html">&lt;h2 id=&quot;what-is-canteen&quot;&gt;What is Canteen?&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://labs.platfora.com/introducing-canteen-ultimate-html5-canvas-testing-library/&quot;&gt;The Canteen home

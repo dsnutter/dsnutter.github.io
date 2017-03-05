@@ -4,7 +4,7 @@
  <title>D. Nutter</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-01-10T10:26:42-05:00</updated>
+ <updated>2017-03-05T13:45:26-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>D. Nutter</name>
@@ -441,7 +441,7 @@ PhantomJS 1.9.8 (Windows 7): Executed 0 of 2[32m SUCCESS[39m (0 secs / 0 secs)
 &lt;p&gt;I really like Canteen as it offers a way to test HTML5 canvas in a
 simpler way. To view an example of a more complex web application I
 developed using Canteen, see
-&lt;a href=&quot;http://utility.lowentropycreations.com/calculators/segmented-bowl-ring-calculator.php&quot;&gt;this&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&quot;/segmented-bowl-ring-calculator/&quot;&gt;this&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  

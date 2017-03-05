@@ -1,0 +1,10 @@
+<h1 class="post-title">Non-Technical Articles and Applications</h1>
+
+{% assign sorted = (site.personal | sort: 'date') | reverse %}
+{% for personal in sorted %}
+
+{{ personal.date | date: "%m/%Y" }}
+&nbsp;
+<a href="{{ personal.url }}">{{ personal.title }}</a>
+
+{% endfor %}

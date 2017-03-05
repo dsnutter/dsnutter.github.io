@@ -22,12 +22,18 @@ author:
   name: "D. Nutter"
   email: ""
   github: dsnutter
-  twitter: "@lowentrpycr8tns"
+  twitter: "@measuredwoodworks"
 
 # Custom vars
 version:             1.0.0
 # Custom DSN site variables
 DSN:
   imagePath: /assets/images
+  imagePathPersonal: /assets/images/personal
   analytics: 
     LEC: "UA-55951835-6"
+
+# include custom posts from _personal
+collections:
+  personal:
+    output: true

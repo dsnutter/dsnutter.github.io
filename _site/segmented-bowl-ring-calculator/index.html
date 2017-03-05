@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="description" content="This utility calculates a segmented ring's cut angle, segment length, and the approximate maximum diameter of the segmented ring needed to woodturn a specific finished ring diameter."/>
+  <meta property="og:title" content="Segmented Bowl Ring Calculator" />
+  <meta property="og:description" content="This utility calculates a segmented ring's cut angle, segment length, and the approximate maximum diameter of the segmented ring needed to woodturn a specific finished ring diameter." />
+
+  <meta property="og:url" content="http://localhost:4000/segmented-bowl-ring-calculator/" />
+  
+  <link rel="canonical" href="http://localhost:4000/segmented-bowl-ring-calculator/" />
+
+  <meta property="og:site_name" content="D. Nutter: Software and Technical Design, Theory, and Musings" />
+
+  <meta property="article:published_time" content="2015-03-11 00:00:00 -0400" />
+
+
+  <meta property="og:image" content="http://localhost:4000assets/images/segmented-bowl-ring-calculator//segment.200x100.png" />
+
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Segmented Bowl Ring Calculator &middot; D. Nutter
+    
+  </title>
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/poole.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" href="/assets/css/lanyon.css">
+  <link rel="stylesheet" href="/assets/css/custom.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+
+
+<!-- AngularJS -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.js"></script>
+<!-- Custom AngularJS --> 
+<script type='text/javascript' src='/assets/js/ng/units.module.js'></script>
+<script type='text/javascript' src='/assets/js/ng/segmented.module.js'></script>
+<script type='text/javascript' src='/assets/js/ng/utility.module.js'></script>
+
+
+
+
+  <!-- Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-55951835-6', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  
+
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p></p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    
+    <a class="sidebar-nav-item" href="/list">Technical Content</a>
+    <a class="sidebar-nav-item" href="/personal">Personal Content</a>
+    <a class="sidebar-nav-item" href="https://github.com/dsnutter">GitHub</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2017. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">D. Nutter</a>
+            <small>Software and Technical Design, Theory, and Musings</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">Segmented Bowl Ring Calculator</h1>
+  <p><img src="/assets/images/personal/segment.200x100.png" alt="Dimensions of segments - Segmented Bowl Ring Calculator" class="pull-right caption" /></p>
+
+<p>
+This utility calculates a segmented ring's cut angle, segment length, and the approximate maximum diameter of the segmented ring needed to woodturn a specific finished ring diameter.
+</p>
+
+<div ng-app="lec.utility" ng-controller="lec.utility.controller.segmentedBowlRingCalculator">
+
+<div ng-cloak="" class="form" role="form">
+
+Units:
+&nbsp;
+<input type="radio" name="units" ng-change="measurementTypeChange()" value="e" ng-model="form.units" /> inches
+<input type="radio" name="units" ng-change="measurementTypeChange()" value="m" ng-model="form.units" /> cm
+<br />
+
+Segmented ring diameter after turning:
+<br />
+<select name="calcdiameter" class="form-control" ng-model="form.diameter" style="width: auto;">
+
+    <option value="-1">Choose...</option>
+    <option ng-repeat="d in rangeDiameters" value="{{ d.value }}">{{ d.display }}</option>
+</select>
+<label>&nbsp;{{ form.unitsdisplay }}</label>
+
+<br />
+
+Number of segments in ring:
+<br />
+<select name="calcnumsegments" class="form-control" ng-model="form.numberSegments">
+
+    <option value="-1">Choose...</option>
+    <option ng-repeat="s in rangeSegments" value="{{ s }}">{{ s }}</option>
+
+</select>
+<br />
+
+Ring segment width (ref. image above):
+<br />
+
+<select name="widthRingSegment" class="form-control" ng-model="form.width" style="width: auto;">
+    <option value="-1">Choose...</option>
+    <option ng-repeat="w in rangeWidths" value="{{ w.value }}">{{ w.display }}</option>
+</select><label>&nbsp;{{ form.unitsdisplay }}</label>
+
+<br />
+
+<button ng-click="calculate()" role="button">Calculate</button>
+<br />
+
+</div>
+
+<div ng-cloak="" ng-show="showresult">
+    <strong>*** RESULTS ***</strong>
+    <br />
+
+    <span style="color: black; font-weight: bold">Segment Cut Angle:</span> {{ strCutAngle }}
+    <br />
+    <span style="color: red; font-weight: bold">A: Max diameter of segmented ring:</span> {{ strDiameterMax }}
+    <br />
+    <span style="color: blue; font-weight: bold">B: Diameter of ring after turning:</span> {{ strDiameter }}
+    <br />
+    <span style="color: purple; font-weight: bold">C: Segment length:</span> {{ strLength }}
+    <br />
+    <span style="color: orange; font-weight: bold">D: Segment width:</span> {{ strWidth }}
+    <br />
+
+    <div style="margin-top: 5px;" segmented-ring=""></div>
+</div>
+
+<div ng-show="false" class="">
+        Please enable javascript to use this utility.
+</div>
+
+</div>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

@@ -3,7 +3,7 @@ layout: post
 title: "Making a Simple Side Table"
 description: "This post explains the process of making a simple side table."
 featuredImage: MakingSimpleSideTable_Completed.JPG
-permalink: /beginning-segmented-bowl-turning/
+permalink: /making-simple-side-table/
 ---
 
 ![Completed side table - Making a Simple Side Table]({{ site.DSN.imagePathPersonal }}/{{ page.featuredImage }}){:.pull-right .caption}

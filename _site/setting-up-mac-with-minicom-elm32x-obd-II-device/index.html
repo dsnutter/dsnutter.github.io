@@ -12,9 +12,9 @@
   <meta property="og:title" content="Setting Up a Mac with Minicom for an ELM32x OBD-II Device" />
   <meta property="og:description" content="This article explains how to setup a ELM32x OBD-II device with minicom on an Apple Macintosh." />
 
-  <meta property="og:url" content="http://dsnutter.github.io/setting-up-mac-with-minicom-elm32x-obd-II-device/" />
+  <meta property="og:url" content="http://localhost:4000/setting-up-mac-with-minicom-elm32x-obd-II-device/" />
   
-  <link rel="canonical" href="http://dsnutter.github.io/setting-up-mac-with-minicom-elm32x-obd-II-device/" />
+  <link rel="canonical" href="http://localhost:4000/setting-up-mac-with-minicom-elm32x-obd-II-device/" />
 
   <meta property="og:site_name" content="D. Nutter: Software and Technical Design, Theory, and Musings" />
 
@@ -123,6 +123,10 @@
         
       
     
+      
+    
+      
+    
 
     
     <a class="sidebar-nav-item" href="/list">Technical Content</a>
@@ -153,7 +157,7 @@
       <div class="container content">
         <div class="post">
   <h1 class="post-title">Setting Up a Mac with Minicom for an ELM32x OBD-II Device</h1>
-  <span class="post-date">12/2016</span>
+  <span class="post-date">12/2016 by D. Nutter</span>
   <h2 id="introduction">Introduction</h2>
 <p>This article explains how to setup a ELM32x OBD-II device with minicom on an Apple Macintosh. An ELM32x OBD-II device plugs into the OBD-II connector on your car and allows you to communicate with it using OBD-II hex codes.
 The ELM32x has an interface similar to a Hayes “AT” interface when connecting to it via a serial terminal program.
@@ -164,26 +168,23 @@ To start the install, open the “terminal” application on your Mac.</p>
 
 <p>Install minicom using <a href="http://brew.sh/" target="_blank">Homebrew</a>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>brew install minicom
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install minicom
+</code></pre></div></div>
 
 <h2 id="setup-minicom">Setup Minicom</h2>
 
 <p>Plug in your OBD-II adapter. Mine was an OBDLink SX USB adapter. At the terminal, type:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ls /dev
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls /dev
+</code></pre></div></div>
 
 <p>You are looking for a tty device named /dev/tty.usbserial-xxxx where xxxx is a number. The tty could also be a bluetooth tty also 
 depending on the type of OBD-II ELM32x adapter you have. (Note: if its bluetooth, you will need to pair the device with your Mac)</p>
 
 <p>Setup minicom by typing:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>minicom -s
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>minicom -s
+</code></pre></div></div>
 
 <p>You should see the following menu:</p>
 
@@ -195,11 +196,10 @@ depending on the type of OBD-II ELM32x adapter you have. (Note: if its bluetooth
 
 <p>Use the keyboard keys to select and input the following:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>A: Input serial adapter device name, such as /dev/tty.usbserial-xxxx
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A: Input serial adapter device name, such as /dev/tty.usbserial-xxxx
 E: Set BPS to 115200
 F: Set hardware flow control to "No"
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>When finished, press return.</p>
 
@@ -209,10 +209,9 @@ F: Set hardware flow control to "No"
 
 <p>Use the keyboard keys to select and input the following:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>P: Set Add linefeed to "Yes"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>P: Set Add linefeed to "Yes"
 Q: Set local echo to "No"
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>When finished choose “Save setup as dfl”, which savings the settings you entered as the defaults.</p>
 
@@ -220,15 +219,13 @@ Q: Set local echo to "No"
 
 <p>From the terminal prompt, type:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>minicom
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>minicom
+</code></pre></div></div>
 
 <p>Minicom will start, so try a sample command. Type:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ATI
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ATI
+</code></pre></div></div>
 
 <p>and the ELM32x will respond with the device firmware version.</p>
 

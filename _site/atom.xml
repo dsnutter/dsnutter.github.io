@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>D. Nutter</title>
- <link href="http://dsnutter.github.io/atom.xml" rel="self"/>
- <link href="http://dsnutter.github.io/"/>
- <updated>2017-03-12T10:58:08-04:00</updated>
- <id>http://dsnutter.github.io</id>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2017-12-24T13:46:22-05:00</updated>
+ <id>http://localhost:4000</id>
  <author>
    <name>D. Nutter</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Setting Up a Mac with Minicom for an ELM32x OBD-II Device</title>
-   <link href="http://dsnutter.github.io/setting-up-mac-with-minicom-elm32x-obd-II-device/"/>
+   <link href="http://localhost:4000/setting-up-mac-with-minicom-elm32x-obd-II-device/"/>
    <updated>2016-12-16T00:00:00-05:00</updated>
-   <id>http://dsnutter.github.io/setting-up-mac-with-minicom-elm32x-obd-II-device</id>
+   <id>http://localhost:4000/setting-up-mac-with-minicom-elm32x-obd-II-device</id>
    <content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This article explains how to setup a ELM32x OBD-II device with minicom on an Apple Macintosh. An ELM32x OBD-II device plugs into the OBD-II connector on your car and allows you to communicate with it using OBD-II hex codes.
 The ELM32x has an interface similar to a Hayes “AT” interface when connecting to it via a serial terminal program.
@@ -27,26 +27,23 @@ To start the install, open the “terminal” application on your Mac.&lt;/p&gt;
 
 &lt;p&gt;Install minicom using &lt;a href=&quot;http://brew.sh/&quot; target=&quot;_blank&quot;&gt;Homebrew&lt;/a&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install minicom
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install minicom
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;setup-minicom&quot;&gt;Setup Minicom&lt;/h2&gt;
 
 &lt;p&gt;Plug in your OBD-II adapter. Mine was an OBDLink SX USB adapter. At the terminal, type:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ls /dev
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ls /dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;You are looking for a tty device named /dev/tty.usbserial-xxxx where xxxx is a number. The tty could also be a bluetooth tty also 
 depending on the type of OBD-II ELM32x adapter you have. (Note: if its bluetooth, you will need to pair the device with your Mac)&lt;/p&gt;
 
 &lt;p&gt;Setup minicom by typing:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;minicom -s
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;minicom -s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;You should see the following menu:&lt;/p&gt;
 
@@ -58,11 +55,10 @@ depending on the type of OBD-II ELM32x adapter you have. (Note: if its bluetooth
 
 &lt;p&gt;Use the keyboard keys to select and input the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A: Input serial adapter device name, such as /dev/tty.usbserial-xxxx
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A: Input serial adapter device name, such as /dev/tty.usbserial-xxxx
 E: Set BPS to 115200
 F: Set hardware flow control to &quot;No&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;When finished, press return.&lt;/p&gt;
 
@@ -72,10 +68,9 @@ F: Set hardware flow control to &quot;No&quot;
 
 &lt;p&gt;Use the keyboard keys to select and input the following:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;P: Set Add linefeed to &quot;Yes&quot;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;P: Set Add linefeed to &quot;Yes&quot;
 Q: Set local echo to &quot;No&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;When finished choose “Save setup as dfl”, which savings the settings you entered as the defaults.&lt;/p&gt;
 
@@ -83,15 +78,13 @@ Q: Set local echo to &quot;No&quot;
 
 &lt;p&gt;From the terminal prompt, type:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;minicom
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;minicom
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Minicom will start, so try a sample command. Type:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ATI
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ATI
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;and the ELM32x will respond with the device firmware version.&lt;/p&gt;
 
@@ -101,9 +94,9 @@ Q: Set local echo to &quot;No&quot;
  
  <entry>
    <title>DC Inverting Amplifiers Using Opamps</title>
-   <link href="http://dsnutter.github.io/dc-opamps-inverting/"/>
+   <link href="http://localhost:4000/dc-opamps-inverting/"/>
    <updated>2016-01-22T00:00:00-05:00</updated>
-   <id>http://dsnutter.github.io/dc-opamps-inverting</id>
+   <id>http://localhost:4000/dc-opamps-inverting</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;/assets/images/dc-opamps-inverting/dc-opamps-schematic.png&quot; alt=&quot;DC Inverting Opamp Circuit Diagram - DC Inverting Amplifiers Using Opamps&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -135,18 +128,17 @@ the DC opamp circuit is (Rf / R1).&lt;/p&gt;
  
  <entry>
    <title>Unit Testing an HTML5 Canvas with Canteen</title>
-   <link href="http://dsnutter.github.io/unit-testing-html5-canvas-with-canteen/"/>
+   <link href="http://localhost:4000/unit-testing-html5-canvas-with-canteen/"/>
    <updated>2015-03-19T00:00:00-04:00</updated>
-   <id>http://dsnutter.github.io/unit-testing-html5-canvas-with-canteen</id>
+   <id>http://localhost:4000/unit-testing-html5-canvas-with-canteen</id>
    <content type="html">&lt;h2 id=&quot;what-is-canteen&quot;&gt;What is Canteen?&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://labs.platfora.com/introducing-canteen-ultimate-html5-canvas-testing-library/&quot;&gt;The Canteen home
 page&lt;/a&gt;
 describes the project as follows:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[...Canteen...] records all of the drawing instructions, such as method calls and property changes, by creating a wrapper around the HTML5 Canvas context object that records all of these instructions and then proxies them to the native HTML5 Canvas context for rendering. 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[...Canteen...] records all of the drawing instructions, such as method calls and property changes, by creating a wrapper around the HTML5 Canvas context object that records all of these instructions and then proxies them to the native HTML5 Canvas context for rendering. 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;I use Canteen to monitor the HTML5 canvas interface to build unit tests.
 Canteen keeps track of all the drawing commands sent to the canvas and
@@ -179,38 +171,33 @@ you are running some other OS then ignore the instructions for Windows
 &lt;p&gt;If you are running Windows 7 open a Node.js command prompt, and execute
 either&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;call &quot;C:\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\bin\\Setenv.cmd&quot; /Release /x86
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;call &quot;C:\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\bin\\Setenv.cmd&quot; /Release /x86
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;for x86 Windows 7 or\&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;call &quot;C:\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\bin\\Setenv.cmd&quot; /Release /x64
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;call &quot;C:\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\bin\\Setenv.cmd&quot; /Release /x64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;for x64 Windows 7.&lt;/p&gt;
 
 &lt;p&gt;Then install &lt;a href=&quot;https://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; and &lt;a href=&quot;https://docs.angularjs.org/api/ngMock/object/angular.mock&quot;&gt;Angular
 Mocks&lt;/a&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install angular angular-mocks
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install angular angular-mocks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Then install &lt;a href=&quot;http://phantomjs.org/&quot;&gt;PhantomJS&lt;/a&gt; and
 &lt;a href=&quot;http://jasmine.github.io/&quot;&gt;Jasmine&lt;/a&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install phantomjs jasmine
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install phantomjs jasmine
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Then install Karma Runner and the associated Karma Plugins for Jasmine
 and PhantomJS&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install karma karma-jasmine karma-phantomjs-launcher --save-dev
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install karma karma-jasmine karma-phantomjs-launcher --save-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Also, under Windows 7, ignore any warnings when installing.&lt;/p&gt;
 
@@ -218,13 +205,12 @@ and PhantomJS&lt;/p&gt;
 repository (you must have &lt;a href=&quot;http://git-scm.com/&quot;&gt;git&lt;/a&gt; installed if you
 don’t already)&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/platfora/Canteen.git
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/platfora/Canteen.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;karma-configuration-file&quot;&gt;Karma Configuration File&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Karma configuration
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Karma configuration
 module.exports = function(config) {
 config.set({
 
@@ -289,14 +275,13 @@ config.set({
     singleRun: true
     });
 };
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;angularjs-code-to-test&quot;&gt;AngularJS Code To Test&lt;/h2&gt;
 
 &lt;p&gt;The following AngularJS service draws a circle on a canvas.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;angular.module(&quot;lec.canvas&quot;, [])
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;angular.module(&quot;lec.canvas&quot;, [])
 
 .factory('lec.canvas.service.draw', function() {
     // the HTML5 drawing context and items to set defaults for
@@ -327,15 +312,14 @@ config.set({
         },
     };
 });
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;jasmine-tests&quot;&gt;Jasmine Tests&lt;/h2&gt;
 
 &lt;p&gt;The following is the jasmine test developed to test the service that
 draws the circle.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;describe('lec.canvas', function() {
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;describe('lec.canvas', function() {
 // test the segmented ring drawing functionality
 describe('lec.canvas.service.draw', function() {
     var draw;
@@ -391,8 +375,7 @@ describe('lec.canvas.service.draw', function() {
     });
 });
 });
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;test-runs&quot;&gt;Test Runs&lt;/h2&gt;
 
@@ -403,7 +386,7 @@ describe('lec.canvas.service.draw', function() {
 &lt;p&gt;The first test run is an unsuccessful test, and the code will output the
 JSON and md5sum representing the canvas generated.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[32mINFO [karma]: [39mKarma v0.12.31 server started at http://localhost:9876/
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[32mINFO [karma]: [39mKarma v0.12.31 server started at http://localhost:9876/
 [32mINFO [launcher]: [39mStarting browser PhantomJS
 [32mINFO [PhantomJS 1.9.8 (Windows 7)]: [39mConnected on socket nCQUhrfMg-pT57ifPpfN with id 9109488
 PhantomJS 1.9.8 (Windows 7): Executed 0 of 2[32m SUCCESS[39m (0 secs / 0 secs)
@@ -417,8 +400,7 @@ PhantomJS 1.9.8 (Windows 7): Executed 1 of 2[32m SUCCESS[39m (0 secs / 0.024 sec
         at D:/projects/Websites/content/entropteria/articles/canteen/codebase/test.canvas.module.js:50
 PhantomJS 1.9.8 (Windows 7): Executed 2 of 2[31m (1 FAILED)[39m (0 secs / 0.033 secs)
 [1A[2KPhantomJS 1.9.8 (Windows 7): Executed 2 of 2[31m (1 FAILED)[39m (0 secs / 0.033 secs)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The json canvas command result and the hash of the commands were printed
 out with “console.log”. You can now base a test off of either the JSON
@@ -426,15 +408,14 @@ or md5sum results. I chose the md5sum, and assigned the md5sum
 ‘00f624e6dff2bf91662a1f80f6981ad9’ in the ‘expected’ string, commented
 out the console.log() commands, and the result is below.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[32mINFO [karma]: [39mKarma v0.12.31 server started at http://localhost:9876/
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[32mINFO [karma]: [39mKarma v0.12.31 server started at http://localhost:9876/
 [32mINFO [launcher]: [39mStarting browser PhantomJS
 [32mINFO [PhantomJS 1.9.8 (Windows 7)]: [39mConnected on socket R1DzjSZ7qVhKA0l7RGp8 with id 11436839
 PhantomJS 1.9.8 (Windows 7): Executed 0 of 2[32m SUCCESS[39m (0 secs / 0 secs)
 [1A[2KPhantomJS 1.9.8 (Windows 7): Executed 1 of 2[32m SUCCESS[39m (0 secs / 0.024 secs)
 [1A[2KPhantomJS 1.9.8 (Windows 7): Executed 2 of 2[32m SUCCESS[39m (0 secs / 0.03 secs)
 [1A[2KPhantomJS 1.9.8 (Windows 7): Executed 2 of 2[32m SUCCESS[39m (0 secs / 0.03 secs)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 

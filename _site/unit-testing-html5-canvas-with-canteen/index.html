@@ -12,9 +12,9 @@
   <meta property="og:title" content="Unit Testing an HTML5 Canvas with Canteen" />
   <meta property="og:description" content="This post describes how to test a HTML5 canvas using Canteen and AngularJS with a Karma/Jasmine unit test harness." />
 
-  <meta property="og:url" content="http://dsnutter.github.io/unit-testing-html5-canvas-with-canteen/" />
+  <meta property="og:url" content="http://localhost:4000/unit-testing-html5-canvas-with-canteen/" />
   
-  <link rel="canonical" href="http://dsnutter.github.io/unit-testing-html5-canvas-with-canteen/" />
+  <link rel="canonical" href="http://localhost:4000/unit-testing-html5-canvas-with-canteen/" />
 
   <meta property="og:site_name" content="D. Nutter: Software and Technical Design, Theory, and Musings" />
 
@@ -123,6 +123,10 @@
         
       
     
+      
+    
+      
+    
 
     
     <a class="sidebar-nav-item" href="/list">Technical Content</a>
@@ -153,16 +157,15 @@
       <div class="container content">
         <div class="post">
   <h1 class="post-title">Unit Testing an HTML5 Canvas with Canteen</h1>
-  <span class="post-date">03/2015</span>
+  <span class="post-date">03/2015 by D. Nutter</span>
   <h2 id="what-is-canteen">What is Canteen?</h2>
 
 <p><a href="http://labs.platfora.com/introducing-canteen-ultimate-html5-canvas-testing-library/">The Canteen home
 page</a>
 describes the project as follows:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[...Canteen...] records all of the drawing instructions, such as method calls and property changes, by creating a wrapper around the HTML5 Canvas context object that records all of these instructions and then proxies them to the native HTML5 Canvas context for rendering. 
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[...Canteen...] records all of the drawing instructions, such as method calls and property changes, by creating a wrapper around the HTML5 Canvas context object that records all of these instructions and then proxies them to the native HTML5 Canvas context for rendering. 
+</code></pre></div></div>
 
 <p>I use Canteen to monitor the HTML5 canvas interface to build unit tests.
 Canteen keeps track of all the drawing commands sent to the canvas and
@@ -195,38 +198,33 @@ you are running some other OS then ignore the instructions for Windows
 <p>If you are running Windows 7 open a Node.js command prompt, and execute
 either</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>call "C:\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\bin\\Setenv.cmd" /Release /x86
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>call "C:\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\bin\\Setenv.cmd" /Release /x86
+</code></pre></div></div>
 
 <p>for x86 Windows 7 or\</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>call "C:\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\bin\\Setenv.cmd" /Release /x64
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>call "C:\\Program Files\\Microsoft SDKs\\Windows\\v7.1\\bin\\Setenv.cmd" /Release /x64
+</code></pre></div></div>
 
 <p>for x64 Windows 7.</p>
 
 <p>Then install <a href="https://angularjs.org/">AngularJS</a> and <a href="https://docs.angularjs.org/api/ngMock/object/angular.mock">Angular
 Mocks</a>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>npm install angular angular-mocks
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install angular angular-mocks
+</code></pre></div></div>
 
 <p>Then install <a href="http://phantomjs.org/">PhantomJS</a> and
 <a href="http://jasmine.github.io/">Jasmine</a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>npm install phantomjs jasmine
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install phantomjs jasmine
+</code></pre></div></div>
 
 <p>Then install Karma Runner and the associated Karma Plugins for Jasmine
 and PhantomJS</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>npm install karma karma-jasmine karma-phantomjs-launcher --save-dev
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install karma karma-jasmine karma-phantomjs-launcher --save-dev
+</code></pre></div></div>
 
 <p>Also, under Windows 7, ignore any warnings when installing.</p>
 
@@ -234,13 +232,12 @@ and PhantomJS</p>
 repository (you must have <a href="http://git-scm.com/">git</a> installed if you
 don’t already)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/platfora/Canteen.git
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/platfora/Canteen.git
+</code></pre></div></div>
 
 <h2 id="karma-configuration-file">Karma Configuration File</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>// Karma configuration
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Karma configuration
 module.exports = function(config) {
 config.set({
 
@@ -305,14 +302,13 @@ config.set({
     singleRun: true
     });
 };
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="angularjs-code-to-test">AngularJS Code To Test</h2>
 
 <p>The following AngularJS service draws a circle on a canvas.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>angular.module("lec.canvas", [])
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>angular.module("lec.canvas", [])
 
 .factory('lec.canvas.service.draw', function() {
     // the HTML5 drawing context and items to set defaults for
@@ -343,15 +339,14 @@ config.set({
         },
     };
 });
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="jasmine-tests">Jasmine Tests</h2>
 
 <p>The following is the jasmine test developed to test the service that
 draws the circle.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>describe('lec.canvas', function() {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>describe('lec.canvas', function() {
 // test the segmented ring drawing functionality
 describe('lec.canvas.service.draw', function() {
     var draw;
@@ -407,8 +402,7 @@ describe('lec.canvas.service.draw', function() {
     });
 });
 });
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="test-runs">Test Runs</h2>
 
@@ -419,7 +413,7 @@ describe('lec.canvas.service.draw', function() {
 <p>The first test run is an unsuccessful test, and the code will output the
 JSON and md5sum representing the canvas generated.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[32mINFO [karma]: [39mKarma v0.12.31 server started at http://localhost:9876/
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[32mINFO [karma]: [39mKarma v0.12.31 server started at http://localhost:9876/
 [32mINFO [launcher]: [39mStarting browser PhantomJS
 [32mINFO [PhantomJS 1.9.8 (Windows 7)]: [39mConnected on socket nCQUhrfMg-pT57ifPpfN with id 9109488
 PhantomJS 1.9.8 (Windows 7): Executed 0 of 2[32m SUCCESS[39m (0 secs / 0 secs)
@@ -433,8 +427,7 @@ PhantomJS 1.9.8 (Windows 7): Executed 1 of 2[32m SUCCESS[39m (0 secs / 0.024 sec
         at D:/projects/Websites/content/entropteria/articles/canteen/codebase/test.canvas.module.js:50
 PhantomJS 1.9.8 (Windows 7): Executed 2 of 2[31m (1 FAILED)[39m (0 secs / 0.033 secs)
 [1A[2KPhantomJS 1.9.8 (Windows 7): Executed 2 of 2[31m (1 FAILED)[39m (0 secs / 0.033 secs)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The json canvas command result and the hash of the commands were printed
 out with “console.log”. You can now base a test off of either the JSON
@@ -442,15 +435,14 @@ or md5sum results. I chose the md5sum, and assigned the md5sum
 ‘00f624e6dff2bf91662a1f80f6981ad9’ in the ‘expected’ string, commented
 out the console.log() commands, and the result is below.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[32mINFO [karma]: [39mKarma v0.12.31 server started at http://localhost:9876/
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[32mINFO [karma]: [39mKarma v0.12.31 server started at http://localhost:9876/
 [32mINFO [launcher]: [39mStarting browser PhantomJS
 [32mINFO [PhantomJS 1.9.8 (Windows 7)]: [39mConnected on socket R1DzjSZ7qVhKA0l7RGp8 with id 11436839
 PhantomJS 1.9.8 (Windows 7): Executed 0 of 2[32m SUCCESS[39m (0 secs / 0 secs)
 [1A[2KPhantomJS 1.9.8 (Windows 7): Executed 1 of 2[32m SUCCESS[39m (0 secs / 0.024 secs)
 [1A[2KPhantomJS 1.9.8 (Windows 7): Executed 2 of 2[32m SUCCESS[39m (0 secs / 0.03 secs)
 [1A[2KPhantomJS 1.9.8 (Windows 7): Executed 2 of 2[32m SUCCESS[39m (0 secs / 0.03 secs)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="conclusion">Conclusion</h2>
 

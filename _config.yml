@@ -18,13 +18,13 @@ url:                 "http://dsnutter.github.io"
 development: false
 
 # About/contact
-author:
-  name: "D. Nutter"
-  email: ""
-  github: dsnutter
+#author:
+#  name: "D. Nutter"
+#  email: ""
+#  github: dsnutter
 
 # About/contact
-#author: ds_nutter
+author: ds_nutter
 authorName: "DS Nutter"
 #email: "inquiry@dsnutter.com"
 twitter:

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>D. Nutter</title>
+ <title>D. Nutter : Software and Technical Design, Theory, and Musings</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-12-24T13:46:22-05:00</updated>
+ <updated>2018-03-18T16:04:04-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>D. Nutter</name>

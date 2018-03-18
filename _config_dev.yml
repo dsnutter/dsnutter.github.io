@@ -6,23 +6,39 @@ permalink: /:title/
 keep_files: [google42abf95ea02add5b.html]
 exclude: [google42abf95ea02add5b.html]
 
-gems: ["jekyll-sitemap"]
+plugins: ["jekyll-sitemap", "jekyll-seo-tag"]
 
 # Setup
 title:               "D. Nutter"
 tagline:             'Software and Technical Design, Theory, and Musings'
-description:         ''
+description:         'Software and Technical Design, Theory, and Musings'
 url:                 "http://localhost:4000"
 #url:                 "http://dsnutter.github.io"
 #baseurl:             ''
+# enable or disable site development variables
 development: true
 
 # About/contact
-author:
-  name: "D. Nutter"
-  email: ""
-  github: dsnutter
-  twitter: "@measuredwoodworks"
+#author:
+#  name: "D. Nutter"
+#  email: ""
+#  github: dsnutter
+
+# About/contact
+author: ds_nutter
+authorName: "DS Nutter"
+#email: "inquiry@dsnutter.com"
+twitter:
+  username: "@ds_nutter"
+social:
+  name: DS Nutter
+  links:
+    - https://twitter.com/ds_nutter
+    - https://github.com/dsnutter
+webmaster_verifications:
+  google: "UA-55951835-6"
+lang: en_US
+#logo: /assets/your-company-logo.png
 
 # Custom vars
 version:             1.0.0

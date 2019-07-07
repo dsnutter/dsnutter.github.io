@@ -291,4 +291,4 @@ Conclusion
 I really like Canteen as it offers a way to test HTML5 canvas in a
 simpler way. To view an example of a more complex web application I
 developed using Canteen, see
-[this](/segmented-bowl-ring-calculator/).
+[this](https://github.com/dsnutter/WoodworkingUtilities).

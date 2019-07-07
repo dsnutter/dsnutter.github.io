@@ -18,10 +18,10 @@ url:                 "https://dsnutter.github.io"
 development: false
 
 # About/contact
-#author:
-#  name: "D. Nutter"
+author:
+  name: "D. Nutter"
 #  email: ""
-#  github: dsnutter
+  github: dsnutter
 
 # About/contact
 author: ds_nutter
@@ -34,8 +34,6 @@ social:
   links:
     - https://twitter.com/ds_nutter
     - https://github.com/dsnutter
-webmaster_verifications:
-  google: "UA-55951835-6"
 lang: en_US
 #logo: /assets/your-company-logo.png
 
@@ -44,11 +42,3 @@ version:             1.0.0
 # Custom DSN site variables
 DSN:
   imagePath: /assets/images
-  imagePathPersonal: /assets/images/personal
-  analytics: 
-    LEC: "UA-55951835-6"
-
-# include custom posts from _personal
-collections:
-  personal:
-    output: true

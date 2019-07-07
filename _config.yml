@@ -3,8 +3,6 @@
 # For more see: http://jekyllrb.com/docs/permalinks/
 #permalink: /:categories/:year/:month/:day/:title 
 permalink: /:title/
-keep_files: [google42abf95ea02add5b.html]
-exclude: [google42abf95ea02add5b.html]
 
 plugins: ["jekyll-sitemap", "jekyll-seo-tag"]
 
@@ -20,7 +18,6 @@ development: false
 # About/contact
 author:
   name: "D. Nutter"
-#  email: ""
   github: dsnutter
 
 # About/contact
@@ -35,7 +32,6 @@ social:
     - https://twitter.com/ds_nutter
     - https://github.com/dsnutter
 lang: en_US
-#logo: /assets/your-company-logo.png
 
 # Custom vars
 version:             1.0.0
